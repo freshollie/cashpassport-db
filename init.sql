@@ -1,7 +1,7 @@
 CREATE TABLE transactions (
     id SERIAL,
     account_id int NOT NULL,
-    timestamp TIMESTAMP NOT NULL,
+    ts TIMESTAMP NOT NULL,
     place VARCHAR,
     amount FLOAT NOT NULL,
     verified BOOLEAN NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE transactions (
 CREATE TABLE users (
     id SERIAL ,
     username varchar NOT NULL,
-    password varchar NOT NULL,
+    hashed_pass varchar NOT NULL,
     email varchar,
     UNIQUE(username),
     PRIMARY KEY (id)
@@ -25,6 +25,7 @@ CREATE TABLE accounts (
     password VARCHAR NOT NULL,
     message VARCHAR NOT NULL,
     answer VARCHAR NOT NULL,
+    balance float NOT NULL,
     notify_changes BOOLEAN NOT NULL,
     PRIMARY KEY (id)
 );
